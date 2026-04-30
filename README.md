@@ -54,6 +54,7 @@ Offset (Hex) |	Kích thước  |	Định nghĩa (C/C++)   |	Kiểu dữ liệu  
 
 - Bitmask structure: các giá trị này phải liền kề nhau và **không được chồng chéo**
 ```text
+	<Pseudocode>
 	typedef _WinNtBitfieldsMasks
 	{
 		DWORD RedMask;         /* Mask identifying bits of red component */
@@ -68,6 +69,7 @@ Offset (Hex) |	Kích thước  |	Định nghĩa (C/C++)   |	Kiểu dữ liệu  
 		DWORD RedMask   = 0xFFC00000;     /* 1111 1111 1100 0000 0000 0000 0000 0000 */
 		DWORD GreenMask = 0x003FF000;     /* 0000 0000 0011 1111 1111 0000 0000 0000 */
 		DWORD BlueMask  = 0x00000FFC;     /* 0000 0000 0000 0000 0000 1111 1111 1100 */
+	</>
 ```
 
 ### 2.2. BMP Version 4 (bao gồm **108byte(bfSize)**, chữ ký ở Offset 0x0E là **0x6C 0x00 0x00 0x00**)
