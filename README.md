@@ -125,15 +125,35 @@ Offset (Hex) |	Kích thước  |	Định nghĩa (C/C++)   |	Kiểu dữ liệu  
 - Cách đọc file từ cuối lên là tuân theo **Little Endian**, tức đọc theo **Least significant bit** nhưng nó lại thể hiện cách pixel sắp xếp trong ảnh thì khác:
 	- Hiện pixel từ phải sang trái từ trên xuống dưới trên ảnh
 - Ví dụ: Cho 1 ảnh với số lượng pixel là 6x6, một màu sẽ được biểu diễn bởi số lượng pixel 4x4
-```text
-Offset|	01	23	45
-_______
-01		đỏ	xanh	cam
+<table>
+<tr>
+<th>Offset</th>
+<th>01</th>
+<th>23</th>
+<th>45</th>
+</tr>
 
-23		lục	đen	tím
+<tr>
+<td>01</td>
+<td style="background-color:red;"></td>
+<td style="background-color:blue;"></td>
+<td style="background-color:orange;"></td>
+</tr>
 
-45		đỏ	trắng	chàm
-```
+<tr>
+<td>23</td>
+<td style="background-color:green;"></td>
+<td style="background-color:black;"></td>
+<td style="background-color:purple;"></td>
+</tr>
+
+<tr>
+<td>45</td>
+<td style="background-color:red;"></td>
+<td style="background-color:white; border:1px solid black;"></td>
+<td style="background-color:indigo;"></td>
+</tr>
+</table>
 ```text
 </Hex>
 Offset                                      bfOffBits
