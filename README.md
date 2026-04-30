@@ -108,12 +108,12 @@ Offset (Hex) |	Kích thước  |	Định nghĩa (C/C++)   |	Kiểu dữ liệu  
 				>Giải thích: Một không gian màu tuân theo ICC(International Color Consortium) được nhúng vào cuối file. Khi thực thi file .bmp, phần nhúng này sẽ được ghi vào bộ nhớ đệm(memory buffer), khi thực thi file sẽ được trỏ tới vùng nhớ đệm đang đọc phần nhúng
 - DWORD `bV5Intent` uint32_t 4byte: là trường quy định quy tắc cách dải màu gamut được ánh xạ vào:
 
-	Value	     		|	Intent	    |	    ICC name	     |	Meaning
---------------------------------|-------------------|------------------------|------------------------------
- LCS_GM_ABS_COLORIMETRIC = '8'	|	Match	    |	Absolute Colorimetric|	Cố đinh các điểm trắng(white point) và phối màu với các màu gần đó nhất khi thực hiện trong dải màu gamut của thiết bị đọc ảnh
- LCS_GM_BUSINESS         = '1'	|	Graphic	    |	Saturation	     |	Giữ nguyên độ bão hoà(Saturation), dùng cho bảng biểu và một vài ngữ cảnh khác có liên quan đến tông màu phẳng (undithered colors)-tức là thuần 1 màu 
- LCS_GM_GRAPHICS	 = '2' 	|  	Proof       |	Relative Colorimetric|	Đảm bảo màu sắc được ánh xạ tuyệt đối theo dải màu gamut dựa vào giá trị đo lường màu sắc (Colorimetric), dùng cho thiết kế đồ hoạ và bảng màu định danh
- LCS_GM_IMAGES	     	 = '4'	|	Picture	    |	Perceptual	     |	Giữ nguyên độ tương phản(Contrast), sử dụng cho ảnh chụp và hình ảnh tự nhiên
+	| Value                         | Intent   | ICC name                 | Meaning |
+|------------------------------|----------|--------------------------|---------|
+| LCS_GM_ABS_COLORIMETRIC = '8'| Match    | Absolute Colorimetric    | Cố định white point và phối màu với màu gần nhất trong gamut |
+| LCS_GM_BUSINESS = '1'        | Graphic  | Saturation               | Giữ độ bão hoà, dùng cho biểu đồ và màu phẳng |
+| LCS_GM_GRAPHICS = '2'        | Proof    | Relative Colorimetric    | Ánh xạ màu theo đo lường colorimetric, dùng cho thiết kế |
+| LCS_GM_IMAGES = '4'          | Picture  | Perceptual               | Giữ độ tương phản, dùng cho ảnh tự nhiên |
 - DWORD bV5ProfileData uint32_t 4byte: Nó ghi nhận giá trị là số byte thể hiện khoảng cách tính từ `BITMAPV5HEADER`(0x0E) cho tới con trỏ lưu vị trí bắt đầu của khối dữ liệu nhúng ICC.
 					- Nếu là dạng `PROFILE_LINKED`, nó sẽ đọc cho tới vị trí thể hiện NULL(0x00) thể hiện kết thúc đường dẫn Link
 					- Cần lưu ý là nó không được Encode bằng Unicode mà phải sử dụng bộ ký tự của Windows 
