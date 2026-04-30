@@ -1,5 +1,5 @@
 #Written By Michael Phan
-#BMP file format structure
+	#BMP file format structure
 #Định nghĩa
 - Là tệp ảnh Bitmap Image
 - Định dạng này có thể được đọc đa nền tảng(Microsoft, Linux,Mac) bởi có tính chất:
