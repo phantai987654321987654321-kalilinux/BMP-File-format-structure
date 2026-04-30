@@ -138,21 +138,17 @@ _______
 </Hex>
 Offset							      bfOffBits
 ____________________________________________________________________________________________________________________________________________								
-000030 |	 00	 00	 00	 00	 00	 00	|00	 00	 ff|	[00	 00	 ff]	|ff	 ff	 ff|	[ff
+</Hex>
+Offset                           bfOffBits
 
-000040 |	 ff	 ff]	|e7	 bf	 c8|	[e7	 bf	 c8]	|00	 00|	[00	 00	 ff]	|00	 00	 ff|
-
-000050 |	[ff	 ff	 ff]	|ff	 ff	 ff|	[e7	 bf	 c8]	|e7	 bf	 c8|	[00	 00]	|00	 ff
-
-000060 |	 00|	[00	 ff	 00]	|00	 00	 00|	[00	 00	 00]	|ff	 00	 80|	[ff	 00	 80]
-
-000070 |	|00	 00|	[00 	 ff	 00]	|00	 ff	 00|	[00	 00	 00]	|00	 00	 00|	[ff	 00
-
-000080 |	 80]	|ff	 00	 80|	[00	 00]	|00	 00	 ff|	[00	 00	 ff]	|ff	 80	 00|	[ff
-
-000090 |	 80	 00]	|00	 80	 ff|	[00	 80	 ff]	|00 	 00|	[00	 00	 ff]	|00	 00	 ff|
-
-0000a0 |	[ff	 80	 00]	|ff	 80	 00|	[00	 80	 ff]	|00	 80	 ff|	[00	 00]
+000030 | 00 00 00 00 00 00 | 00 00 ff | [00 00 ff] | ff ff ff | [ff ff
+000040 | ff ff]            | e7 bf c8 | [e7 bf c8] | 00 00    | [00 00 ff] | 00 00 ff |
+000050 | [ff ff ff]        | ff ff ff | [e7 bf c8] | e7 bf c8 | [00 00]    | 00 ff
+000060 | 00                | [00 ff 00] | 00 00 00  | [00 00 00] | ff 00 80 | [ff 00 80]
+000070 |                   | 00 00     | [00 ff 00] | 00 ff 00 | [00 00 00] | 00 00 00 | [ff 00
+000080 | 80                | ff 00 80  | [00 00]    | 00 00 ff | [00 00 ff] | ff 80 00 | [ff
+000090 | 80 00             | 00 80 ff  | [00 80 ff] | 00 00    | [00 00 ff] | 00 00 ff |
+0000a0 | [ff 80 00]        | ff 80 00  | [00 80 ff] | 00 80 ff | [00 00]
 ```
 
 - [] or | |: là một cụm chỉ thị màu gồm 6byte
@@ -169,10 +165,15 @@ ________________________________________________________________________________
 
 # REFERENCES
 >https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-wmf/4813e7fd-52d0-4f42-965f-228c8b7488d2
+
 >https://learn.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-bitmapinfoheader
+
 >https://jacobfilipp.com/DrDobbs/articles/DDJ/1994/9409/9409a/9409a.htm
+
 >https://jacobfilipp.com/DrDobbs/articles/DDJ/1995/9504/9504c/9504c.htm
+
 >https://engineering.purdue.edu/ece264/19sp/hw/HW11
+
 >https://en.lntwww.de/index.php?title=Digital_Signal_Transmission/Applications_for_Multimedia_Files&direction=prev&oldid=49491
 >https://docs.fileformat.com/image/bmp/
 >https://www.leadtools.com/help/leadtools/v19merged/dh/multimedia/mf/leadtools.mediafoundation~leadtools.mediafoundation.bitmapinfoheader_members.html
