@@ -34,10 +34,8 @@ Offset (Hex) |	Kích thước  |	Định nghĩa (C/C++)   |	Kiểu dữ liệu  
 0x16	     |	4 bytes	    |	LONG (biHeight)      |	int32_t       |	Chiều dài vật lý của ảnh tính bằng pixel(giá trị dương hoặc âm sẽ quét Top to Bottom)
 0x1A         |	2 bytes	    |	WORD (biPlanes)      |	uint16_t      |	Số mặt phẳng màu(luôn là 1: 0x01 0x00)
 0x1C	     |  2 bytes	    |	WORD (biBitCounts)   |	uint16_t      |	ColourDepth: số lượng bit cấu thành 1 pixel(giá trị 1/4/8/16/24/32).
-0x1E	     |	4 bytes	    |	DWORD (biCompression)|	int32_t       |	'0' = BI_RGB: ko nén, phổ biến nhất
-- '1' = BI_RLEB8: nén RLE cho ảnh 8 bit
-- '2' = BI_RLEB4: nén RLE cho ảnh 4 bit
-- '3' = BI_BITFIELDS: dùng bitmask
+0x1E	     |	4 bytes	    |	DWORD (biCompression)|	int32_t       |	'0' = BI_RGB: ko nén, phổ biến nhất<br>'1' = BI_RLEB8: nén RLE cho ảnh 8 bit<br>'2' = BI_RLEB4: nén RLE cho ảnh 4 bit<br>'3' = BI_BITFIELDS: dùng bitmask
+
 Offset (Hex) |	Kích thước  |	Định nghĩa (C/C++)   |	Kiểu dữ liệu  |	Phân tích chức năng
 -------------|--------------|------------------------|----------------|------------------------------------------------
 0x22	     |	4 bytes	    |	DWORD (biSizeImage)  |	uint32_t      |	Dung lượng ảnh thô: -Kích thước vùng dữ liệu thô(Pixel Array+padding); nếu biCompression='0' thì có thể để giá trị này là 0
