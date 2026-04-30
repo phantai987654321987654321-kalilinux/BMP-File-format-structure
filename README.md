@@ -77,8 +77,10 @@ Offset (Hex) |	Kích thước  |	Định nghĩa (C/C++)   |	Kiểu dữ liệu  
 - Đối với `bV4Compression`, nó thêm vào 2 giá trị khác:
 	+ '4' = `Bi_JPEG`: Định dạng nén này là giải pháp giảm băng thông khi truyền ảnh JPEG, cho dữ liệu thô được "bao gói" bởi định dạng .bmp
 	+ '5' = `Bi_PNG`: Tương tự
->**Do đó** khi `bV4Compression` mang 2 giá trị trên, `bV4SizeImage` cũng sẽ thay đổi thành kích thước của tệp JPEG hoặc PNG
+>_**Do đó** khi `bV4Compression` mang 2 giá trị trên, `bV4SizeImage` cũng sẽ thay đổi thành kích thước của tệp JPEG hoặc PNG_
 - Tương tự Ver3, Ver4 cũng sử dụng bitmask khi giá trị `bV4Compression` = '3', đặc biệt thêm `AlphaMask` thể hiện độ trong suốt(transparent) của ảnh và tất cả đều là kiểu dữ liệu uint32_t
+```text
+	<Pseudocode>
 	+16-bit:
 		DWORD RedMask   = 0x07C00000;     /* 0000 0111 1100 0000 0000 0000 0000 0000 */
 		DWORD GreenMask = 0x003E0000;     /* 0000 0000 0011 1110 0000 0000 0000 0000 */
@@ -89,6 +91,7 @@ Offset (Hex) |	Kích thước  |	Định nghĩa (C/C++)   |	Kiểu dữ liệu  
 		DWORD GreenMask = 0x0000FF00;     /* 0000 0000 0000 0000 1111 1111 0000 0000 */
 		DWORD BlueMask  = 0x000000FF;     /* 0000 0000 0000 0000 0000 0000 1111 1111 */
 		DWORD AlphaMask = 0xFF000000;     /* 1111 1111 0000 0000 0000 0000 0000 0000 */
+```
 - DWORD `bV4CSType` uint32_t 4byte: Không gian màu của DIB bắt buộc mang giá trị `LCS_CALIBRATED_RGB`(LogicalColorSpace Enumeration Clibrated RGB) = '0'. Trường này để đưa ra một cấu trúc linh động, giúp hiệu chỉnh(calibrate) màu sắc
 				- theo thiết bị sử dụng không gian màu khác với không gian màu tạo ra dữ liệu gốc để tránh gây xung đột hoặc lỗi ảnh.
 - Long `bV4Endpoints` 32-bit fixed point value 36byte: Cấu trúc `CIEXYZTRIPLE` định nghĩa cấu trúc sắc độ(chromaticity) theo chuẩn CIE(Commission Internationale de l'Eclairage - An international Commission on Illumination in Vienna, Austria)
