@@ -126,7 +126,7 @@ Offset (Hex) |	Kích thước  |	Định nghĩa (C/C++)   |	Kiểu dữ liệu  
 	- Hiện pixel từ phải sang trái từ trên xuống dưới trên ảnh
 - Ví dụ: Cho 1 ảnh với số lượng pixel là 6x6, một màu sẽ được biểu diễn bởi số lượng pixel 4x4
 
-Offset | 01  23  45
+Offset | 01  23  45<br>
 01     🟥  🟦  🟧<br>
 23     🟩  ⬛  🟪<br>
 45     🟥  ⬜  🟦(chàm)
