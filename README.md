@@ -110,7 +110,7 @@ Offset (Hex) |	Kích thước  |	Định nghĩa (C/C++)   |	Kiểu dữ liệu  
 
 	Value	     		|	Intent	    |	    ICC name	     |	Meaning
 --------------------------------|-------------------|------------------------|------------------------------
- LCS_GM_ABS_COLORIMETRIC = '8'	|	Match	    |	Absolute Colorimetric|	Cố định các điểm trắng(white point) và phối màu với các màu gần đó nhất khi thực hiện trong dải màu gamut của thiết bị đọc ảnh
+ LCS_GM_ABS_COLORIMETRIC = '8'	|	Match	    |	Absolute Colorimetric|	Cố đinh các điểm trắng(white point) và phối màu với các màu gần đó nhất khi thực hiện trong dải màu gamut của thiết bị đọc ảnh
  LCS_GM_BUSINESS         = '1'	|	Graphic	    |	Saturation	     |	Giữ nguyên độ bão hoà(Saturation), dùng cho bảng biểu và một vài ngữ cảnh khác có liên quan đến tông màu phẳng (undithered colors)-tức là thuần 1 màu 
  LCS_GM_GRAPHICS	 = '2' 	|  	Proof       |	Relative Colorimetric|	Đảm bảo màu sắc được ánh xạ tuyệt đối theo dải màu gamut dựa vào giá trị đo lường màu sắc (Colorimetric), dùng cho thiết kế đồ hoạ và bảng màu định danh
  LCS_GM_IMAGES	     	 = '4'	|	Picture	    |	Perceptual	     |	Giữ nguyên độ tương phản(Contrast), sử dụng cho ảnh chụp và hình ảnh tự nhiên
