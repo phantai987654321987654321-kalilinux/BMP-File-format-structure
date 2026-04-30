@@ -146,7 +146,7 @@ Offset                                      bfOffBits
 </>
 ```
 
-- [] or | |: là một cụm chỉ thị màu gồm 6byte
+- [ ] or | |: là một cụm chỉ thị màu gồm 6byte
 
 - đỏ	0x0000ff
 - xanh	0xff8000
@@ -156,7 +156,7 @@ Offset                                      bfOffBits
 - tím	0xff0080
 - trắng	0xffffff
 - chàm	0xe7bfc8
-
+- padding 0x0000
 
 # REFERENCES
 >https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-wmf/4813e7fd-52d0-4f42-965f-228c8b7488d2
