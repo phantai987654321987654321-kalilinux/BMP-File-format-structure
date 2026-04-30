@@ -42,15 +42,9 @@ Offset (Hex) |	Kích thước  |	Định nghĩa (C/C++)   |	Kiểu dữ liệu  
 
 Offset (Hex) |	Kích thước  |	Định nghĩa (C/C++)   |	Kiểu dữ liệu  |	Phân tích chức năng
 -------------|--------------|------------------------|----------------|------------------------------------------------
-0x26         |	4 bytes	    |	LONG (biXPelsPerMeter)|	uint16_t      |	Pixel pers meter along X-axis
-
-									'0' = Default
-									'2835' = means 72 DPI-Dots per inch
-0x2A	     |  4 bytes	    |	LONG (biYPelsPerMeter)|	uint16_t      |	Pixel pers meter along Y-axis
-									'0' = Default
-									'2835' = means 72 DPI-Dots per inch
-0x2E	     |	4 bytes	    |	LONG (biClrUsed)     |	int32_t       |	Chỉ định số lượng chỉ mục màu trong bảng màu(Color palete) thực sự được bitmap sử dụng
-									'0' = Sử dụng con trỏ để lấy giá trị màu và có thể lấy được tối đa các màu trong bảng màu theo giá trị biBitCounts, Color palete = 4 * 2^biBitCounts
+0x26         |	4 bytes	    |	LONG (biXPelsPerMeter)|	uint16_t      |	Pixel pers meter along X-axis<br>'0' = Default<br>'2835' = means 72 DPI-Dots per inch
+0x2A	     |  4 bytes	    |	LONG (biYPelsPerMeter)|	uint16_t      |	Pixel pers meter along Y-axis<br>'0' = Default<br>'2835' = means 72 DPI-Dots per inch
+0x2E	     |	4 bytes	    |	LONG (biClrUsed)     |	int32_t       |	Chỉ định số lượng chỉ mục màu trong bảng màu(Color palete) thực sự được bitmap sử dụng<br>'0' = Sử dụng con trỏ để lấy giá trị màu và có thể lấy được tối đa các màu trong bảng màu theo giá trị biBitCounts, Color palete = 4 * 2^biBitCounts
 									(biClrUsed =! '0' || '0' < biBitCounts <'16') = Tương tự ở trên nhưng không lấy tối đa nếu biBitCounts < '8'
 									(biClrUsed =! '0' ||'8' < biBitCounts <= '32') = Lấy kích thước màu trực tiếp, nếu biBitCounts ='16' hoặc '32', nó sẽ cần 3 DWORD bitmask sau 40byte DIB header
 0x32         |	4 bytes	    |	DWORD (biClrImportant)|	uint16_t      |	Chỉ định số lượng chỉ mục màu quan trọng được hiển thị trên bitmap
