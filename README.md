@@ -128,8 +128,8 @@ Offset (Hex) |	Kích thước  |	Định nghĩa (C/C++)   |	Kiểu dữ liệu  
 
 Offset | 01  23  45
 -------------------
-01     🟥  🟦  🟧
-23     🟩  ⬛  🟪
+01     🟥  🟦  🟧<br>
+23     🟩  ⬛  🟪<br>
 45     🟥  ⬜  🟦
 
 ```text
