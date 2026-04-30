@@ -38,8 +38,9 @@ Offset (Hex) |	Kích thước  |	Định nghĩa (C/C++)   |	Kiểu dữ liệu  
 - '1' = BI_RLEB8: nén RLE cho ảnh 8 bit
 - '2' = BI_RLEB4: nén RLE cho ảnh 4 bit
 - '3' = BI_BITFIELDS: dùng bitmask
-
+-------------|--------------|------------------------|----------------|------------------------------------------------
 0x22	     |	4 bytes	    |	DWORD (biSizeImage)  |	uint32_t      |	Dung lượng ảnh thô: Kích thước vùng dữ liệu thô(Pixel Array+padding); nếu biCompression='0' thì có thể để giá trị này là 0
+-------------|--------------|------------------------|----------------|------------------------------------------------
 0x26         |	4 bytes	    |	LONG (biXPelsPerMeter)|	uint16_t      |	Pixel pers meter along X-axis
 									'0' = Default
 									'2835' = means 72 DPI-Dots per inch
