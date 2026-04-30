@@ -35,19 +35,10 @@ Offset (Hex) |	Kích thước  |	Định nghĩa (C/C++)   |	Kiểu dữ liệu  
 0x1A         |	2 bytes	    |	WORD (biPlanes)      |	uint16_t      |	Số mặt phẳng màu(luôn là 1: 0x01 0x00)
 0x1C	     |  2 bytes	    |	WORD (biBitCounts)   |	uint16_t      |	ColourDepth: số lượng bit cấu thành 1 pixel(giá trị 1/4/8/16/24/32).
 0x1E	     |	4 bytes	    |	DWORD (biCompression)|	int32_t       |	'0' = BI_RGB: ko nén, phổ biến nhất<br>'1' = BI_RLEB8: nén RLE cho ảnh 8 bit<br>'2' = BI_RLEB4: nén RLE cho ảnh 4 bit<br>'3' = BI_BITFIELDS: dùng bitmask
-
-Offset (Hex) |	Kích thước  |	Định nghĩa (C/C++)   |	Kiểu dữ liệu  |	Phân tích chức năng
--------------|--------------|------------------------|----------------|------------------------------------------------
-0x22	     |	4 bytes	    |	DWORD (biSizeImage)  |	uint32_t      |	Dung lượng ảnh thô: -Kích thước vùng dữ liệu thô(Pixel Array+padding); nếu biCompression='0' thì có thể để giá trị này là 0
-
-Offset (Hex) |	Kích thước  |	Định nghĩa (C/C++)   |	Kiểu dữ liệu  |	Phân tích chức năng
--------------|--------------|------------------------|----------------|------------------------------------------------
+0x22	     |	4 bytes	    |	DWORD (biSizeImage)  |	uint32_t      |	Dung lượng ảnh thô: -Kích thước vùng dữ liệu thô(Pixel Array+padding); nếu biCompression = '0' thì có thể để giá trị này là 0
 0x26         |	4 bytes	    |	LONG (biXPelsPerMeter)|	uint16_t      |	Pixel pers meter along X-axis<br>'0' = Default<br>'2835' = means 72 DPI-Dots per inch
 0x2A	     |  4 bytes	    |	LONG (biYPelsPerMeter)|	uint16_t      |	Pixel pers meter along Y-axis<br>'0' = Default<br>'2835' = means 72 DPI-Dots per inch
 0x2E	     |	4 bytes	    |	LONG (biClrUsed)     |	int32_t       |	Chỉ định số lượng chỉ mục màu trong bảng màu(Color palete) thực sự được bitmap sử dụng<br>'0' = Sử dụng con trỏ để lấy giá trị màu và có thể lấy được tối đa các màu trong bảng màu theo giá trị biBitCounts, Color palete = 4 * 2^biBitCounts<br>(biClrUsed =! '0' || '0' < biBitCounts <'16') = Tương tự ở trên nhưng không lấy tối đa nếu biBitCounts < '8'<br>(biClrUsed =! '0' ||'8' < biBitCounts <= '32') = Lấy kích thước màu trực tiếp, nếu biBitCounts ='16' hoặc '32', nó sẽ cần 3 DWORD bitmask sau 40byte DIB header
-
-Offset (Hex) |	Kích thước  |	Định nghĩa (C/C++)   |	Kiểu dữ liệu  |	Phân tích chức năng
--------------|--------------|------------------------|----------------|------------------------------------------------
 0x32         |	4 bytes	    |	DWORD (biClrImportant)|	uint16_t      |	Chỉ định số lượng chỉ mục màu quan trọng được hiển thị trên bitmap<br>'0' = Tất cả đều quan trọng
 
 - bfOffBits = 14(File Header) + (DIB Header) + biClrUsed*4
