@@ -173,6 +173,9 @@ Offset                                      bfOffBits
 >https://engineering.purdue.edu/ece264/19sp/hw/HW11
 
 >https://en.lntwww.de/index.php?title=Digital_Signal_Transmission/Applications_for_Multimedia_Files&direction=prev&oldid=49491
+
 >https://docs.fileformat.com/image/bmp/
+
 >https://www.leadtools.com/help/leadtools/v19merged/dh/multimedia/mf/leadtools.mediafoundation~leadtools.mediafoundation.bitmapinfoheader_members.html
+
 >https://upload.wikimedia.org/wikipedia/commons/7/75/BMPfileFormat.svg
