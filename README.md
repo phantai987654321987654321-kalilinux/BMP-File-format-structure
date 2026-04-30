@@ -1,6 +1,6 @@
-#Written By Michael Phan
-	#BMP file format structure
-#Định nghĩa
+# Written By Michael Phan
+# BMP file format structure
+# Định nghĩa
 - Là tệp ảnh Bitmap Image
 - Định dạng này có thể được đọc đa nền tảng(Microsoft, Linux,Mac) bởi có tính chất:
 	- Independent of graphics adapter(độc lập với card đồ hoạ)
@@ -12,7 +12,7 @@
 	3. Colour Palette: tuỳ chọn colour depth
 	4. Pixel data(Pixel array, BGR rows + padding): Dữ liệu ảnh
 
-##1. Bitmap file header
+## 1. Bitmap file header
 - Bắt đầu tại địa chỉ **0x00(Hex)**, bao gồm **14 byte**, chi tiết được thể hiện như sau:
 
 Offset (Hex) |	Kích thước  |	Định nghĩa (C/C++)   |	Kiểu dữ liệu  |	Phân tích chức năng
@@ -23,11 +23,11 @@ Offset (Hex) |	Kích thước  |	Định nghĩa (C/C++)   |	Kiểu dữ liệu  
 0x08	     |  2 bytes	    |	WORD (bfReserved2)   |	uint16_t      |	Dữ liệu sao lưu 2: Bắt buộc là 0x00 0x00.
 0x0A	     |	4 bytes	    |	DWORD (bfOffBits)    |	uint32_t      |	Con trỏ Offset: Khai báo vị trí byte chính xác bắt đầu vùng dữ liệu Pixel (thường là byte thứ 54 đối với ảnh 24-bit).
 
-##2. DIB Header
+## 2. DIB Header
 - Khác biệt cốt lõi giữa các phiên bản BMP hiện đại nằm ở kích thước của DIB Header. Hệ thống đọc giá trị DWORD (4 bytes-unit32_t)
 	- tại offset 0x0E để xác định kích thước khối này, từ đó xác định chính xác nó đang xử lý phiên bản BMP nào.
 
-###2.1. BMP Version 3 (bao gồm **40byte(bfSize)**, chữ ký ở Offset 0x0E là **0x28 0x00 0x00 0x00**)
+### 2.1. BMP Version 3 (bao gồm **40byte(bfSize)**, chữ ký ở Offset 0x0E là **0x28 0x00 0x00 0x00**)
 Offset (Hex) |	Kích thước  |	Định nghĩa (C/C++)   |	Kiểu dữ liệu  |	Phân tích chức năng
 -------------|--------------|------------------------|----------------|------------------------------------------------
 0x12	     |	4 bytes	    |	LONG (biWidth)	     |	int32_t       |	Chiều rộng vật lý của ảnh tính bằng pixel(bắt buộc giá trị dương)
@@ -82,7 +82,7 @@ Offset (Hex) |	Kích thước  |	Định nghĩa (C/C++)   |	Kiểu dữ liệu  
 		DWORD BlueMask  = 0x00000FFC;     /* 0000 0000 0000 0000 0000 1111 1111 1100 */
 ```
 
-###2.2. BMP Version 4 (bao gồm **108byte(bfSize)**, chữ ký ở Offset 0x0E là **0x6C 0x00 0x00 0x00**)
+### 2.2. BMP Version 4 (bao gồm **108byte(bfSize)**, chữ ký ở Offset 0x0E là **0x6C 0x00 0x00 0x00**)
 - Ver 4 kế thừa hoàn toàn các tính năng của Ver 3 và thêm vào 9 trường(fields) khác trong đó có `CIEXYZTRIPLE` `bV4Endpoints` bao gồm 9 thành phần nhỏ hơn
 - Đối với `bV4Compression`, nó thêm vào 2 giá trị khác:
 	+ '4' = `Bi_JPEG`: Định dạng nén này là giải pháp giảm băng thông khi truyền ảnh JPEG, cho dữ liệu thô được "bao gói" bởi định dạng .bmp
@@ -105,7 +105,7 @@ Offset (Hex) |	Kích thước  |	Định nghĩa (C/C++)   |	Kiểu dữ liệu  
 			- cho điểm cuối(endpoints) 3 màu đỏ, lục, xanh. Nếu `CSType != LCS_CALIBRATED_RGB` thì `bV4Endpoints` bị bỏ qua.
 -DWORD `bV4GammaRed/Green/Blue` 32-bit fixed point value 12byte: kiểu dữ liệu 32bit với dấu chấm tĩnh(32-bit fixed point value), xác định cường độ màu theo đường cong màu(toned response curve)
 
-###2.3. BMP Version 5 (bao gồm **124byte(bfSize)**, chữ ký ở Offset 0x0E là **0x7C 0x00 0x00 0x00**)
+### 2.3. BMP Version 5 (bao gồm **124byte(bfSize)**, chữ ký ở Offset 0x0E là **0x7C 0x00 0x00 0x00**)
 - DWORD `bV4CSType` uint32_t 4byte: Không gian màu của DIB có 5 giá trị gán, nếu giá trị  là `PROFILE_LINKED` hoặc `PROFILE_EMBEDDED` thì gamma và endpoint bị bỏ qua:
 	+ LCS_CALIBRATED_RGB
 	+ LCS_sRGB = 0x73524742 : xác đinh giá trị màu tuân theo không gian màu sRBG chuẩn
@@ -126,7 +126,7 @@ Offset (Hex) |	Kích thước  |	Định nghĩa (C/C++)   |	Kiểu dữ liệu  
 - DWORD `bV5ProfileSize` uint32_t 4byte: Kích thước của phần nhúng tính bằng byte
 - DWORD `bV5Reserved` uint32_t 4byte: Đặt giá trị là '0'
 
-##3. Pixel Array
+## 3. Pixel Array
 - Khi đọc hết số byte của header và DIB, trình đọc ảnh sẽ tiến hành đọc từ cuối file(từ phải sang trái từ dưới lên trên) cho tới vị trí offset thể hiện trong `bfOffBits`
 - Cách đọc file từ cuối lên là tuân theo **Little Endian**, tức đọc theo **Least significant bit** nhưng nó lại thể hiện cách pixel sắp xếp trong ảnh thì khác:
 	- Hiện pixel từ phải sang trái từ trên xuống dưới trên ảnh
@@ -172,7 +172,7 @@ ________________________________________________________________________________
 - chàm	0xe7bfc8
 
 
-#REFERENCES
+# REFERENCES
 >https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-wmf/4813e7fd-52d0-4f42-965f-228c8b7488d2
 >https://learn.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-bitmapinfoheader
 >https://jacobfilipp.com/DrDobbs/articles/DDJ/1994/9409/9409a/9409a.htm
